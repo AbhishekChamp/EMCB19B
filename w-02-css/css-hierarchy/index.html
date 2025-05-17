@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Hierarchy Example</title>
+
+        <!-- External CSS -->
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- Internal CSS -->
+        <style>
+            .example {
+                color: green;
+            }
+
+            #unique {
+                color: blue;
+            }
+
+            p {
+                color: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CSS Specificity & Hierarchy</h1>
+
+        <p class="example" id="unique" style="color: red !important">
+            This paragraph demonstrates CSS specificity and hierarchy.
+        </p>
+
+        <ul>
+            <li>External styles apply first</li>
+            <li>Internal styles override external</li>
+            <li>Inline styles override both</li>
+            <li><code>!important</code> overrides everything</li>
+        </ul>
+    </body>
+</html>
