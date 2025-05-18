@@ -66,8 +66,14 @@ h1 {
 
 /* em box (relative to its own font size) */
 .box-em {
-    font-size: 2em; /* 32px => nakes the parent element's 1em = 32px */
+    font-size: 2em; /* 64px => nakes the parent element's 1em = 32px */
     width: 10em; /* 320px */
     height: 6em; /* 192px */
     background-color: #f59f00;
+}
+
+@media (max-width: 700px) {
+    html {
+        font-size: 10px;
+    }
 }

@@ -21,18 +21,24 @@ h1 {
 
     /* Toggle between display: flex or grid to demonstrate both */
     display: flex; /* Or change this to 'grid' for Grid layout */
-    flex-wrap: wrap; /* Optional for flex demonstration */
+    /* flex-wrap: wrap; Optional for flex demonstration */
     gap: 10px; /* Works for both flex and grid */
 
     /* Uncomment for Grid layout demo */
-    /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+    /* grid-template-columns: repeat(8, 1fr) 2fr; */
 }
 
 .item {
     flex: 1 1 100px; /* Works with flex layout */
     /* Remove 'flex' if using grid only */
+    /* flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px; */
 
     height: 100px;
+    /* width: 200px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,12 +50,14 @@ h1 {
 
 .item:nth-child(1) {
     background-color: #e74c3c;
+    /* flex-shrink: 2; */
 }
 .item:nth-child(2) {
     background-color: #3498db;
 }
 .item:nth-child(3) {
     background-color: #2ecc71;
+    /* flex-shrink: 4; */
 }
 .item:nth-child(4) {
     background-color: #f39c12;
