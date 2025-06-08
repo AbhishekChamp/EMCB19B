@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Carousel Component</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background: #f0f0f0;
+            }
+
+            .carousel-container {
+                width: 60%;
+                padding: 20px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .carousel-track {
+                display: flex;
+                transition: transform 0.5s ease;
+            }
+
+            .carousel-item {
+                flex: 0 0 33.3333%;
+                max-width: 33.3333%;
+                padding: 20px;
+            }
+
+            .box {
+                background-color: #3498db;
+                color: white;
+                font-size: 48px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+                border-radius: 10px;
+            }
+
+            .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 20px;
+                cursor: pointer;
+                z-index: 1;
+            }
+
+            .nav-left {
+                left: 0;
+            }
+
+            .nav-right {
+                right: 0;
+            }
+
+            .nav-button:disabled {
+                background: rgba(0, 0, 0, 0.3);
+                cursor: default;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="carousel-container">
+            <button class="nav-button nav-left" id="prevBtn">&#10094;</button>
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-item"><div class="box">A</div></div>
+                <div class="carousel-item"><div class="box">B</div></div>
+                <div class="carousel-item"><div class="box">C</div></div>
+                <div class="carousel-item"><div class="box">D</div></div>
+                <div class="carousel-item"><div class="box">E</div></div>
+            </div>
+            <button class="nav-button nav-right" id="nextBtn">&#10095;</button>
+        </div>
+
+        <script>
+            const track = document.getElementById("carouselTrack");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
+
+            let currentIndex = 0;
+            const totalItems = 5;
+            const itemsToShow = 3;
+
+            function updateButtons() {
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= totalItems - itemsToShow;
+            }
+
+            function updateCarousel() {
+                const percentage = (100 / itemsToShow) * currentIndex;
+                track.style.transform = `translateX(-${percentage}%)`;
+                updateButtons();
+            }
+
+            prevBtn.addEventListener("click", () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextBtn.addEventListener("click", () => {
+                if (currentIndex < totalItems - itemsToShow) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            updateButtons();
+        </script>
+    </body>
+</html>
