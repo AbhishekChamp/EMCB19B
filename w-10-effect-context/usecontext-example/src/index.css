@@ -1,0 +1,50 @@
+/* Light theme styles */
+.App.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.App.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Component A and B styles */
+.component-a.light {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.component-a.dark {
+    background-color: #444444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.component-b.light {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.component-b.dark {
+    background-color: #444444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Button styles */
+.theme-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.theme-button:hover {
+    background-color: #0056b3;
+}
